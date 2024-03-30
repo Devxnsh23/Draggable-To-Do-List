@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<style>
+    /* Center the division horizontally and vertically */
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .centered {
+            width: 300px; /* Adjust width as needed */
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+</style>
+<body>
+    
+    <div style="position: center;">
+        <form id="loginForm">
+            <h2>Login</h2><br><br>
+
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="submit" value="Login"><br>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+
+    </div>
+    
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var storedPassword = localStorage.getItem(username);
+            if (password === storedPassword) {
+                alert("Login successful!");
+                // Redirect to to-do list page
+                window.location.href = "Todo.html";
+            } else {
+                alert("Invalid username or password.");
+            }
+        });
+    </script>
+</body>
+</html>
